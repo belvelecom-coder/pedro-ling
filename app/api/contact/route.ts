@@ -58,7 +58,13 @@ export async function POST(req: NextRequest) {
       phone: String(phone || "").slice(0, 50),
     };
 
-    await sendEmailNotification(data);
+    try {
+      await sendEmailNotification(data);
+    } catch (emailErr) {
+      // Log the email error but don't fail the request —
+      // the customer sees success and we investigate separately.
+      console.error("Email notification failed:", emailErr);
+    }
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (err) {
