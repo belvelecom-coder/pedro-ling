@@ -32,10 +32,14 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
     }
 
     try {
+      // Convert YYYY-MM-DD → DD/MM/YYYY for the notification email
+      const [y, m, d] = form.weddingDate.split("-");
+      const formattedDate = y && m && d ? `${d}/${m}/${y}` : form.weddingDate;
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, weddingDate: formattedDate }),
       });
 
       if (!res.ok) throw new Error("Submission failed");
@@ -114,14 +118,12 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
         </label>
         <input
           required
-          type="text"
+          type="date"
           name="weddingDate"
           value={form.weddingDate}
           onChange={handleChange}
-          placeholder="dd/mm/yyyy"
-          pattern="\d{2}/\d{2}/\d{4}"
           className={inputClass}
-          style={inputStyle}
+          style={{ ...inputStyle, colorScheme: "light" }}
         />
       </div>
 
