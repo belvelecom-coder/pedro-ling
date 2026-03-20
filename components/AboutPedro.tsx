@@ -132,9 +132,9 @@ export default function AboutPedro() {
             </h2>
 
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
-              {t.aboutP1.split("Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba")[0]}
-              <strong>Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba</strong>
-              {t.aboutP1.split("Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba")[1]}
+              {t.aboutP1.split("Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz")[0]}
+              <strong>Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz</strong>
+              {t.aboutP1.split("Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz")[1]}
             </p>
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
               {t.aboutP2.split("Princess Cruises")[0]}

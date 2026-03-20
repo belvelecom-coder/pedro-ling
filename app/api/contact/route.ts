@@ -30,30 +30,32 @@ function appendToCSV(data: {
   fs.appendFileSync(CSV_PATH, row + "\n");
 }
 
+const NOTIFY_EMAIL = "lisbonfirstdance@gmail.com";
+
 async function sendEmailNotification(data: {
   name: string;
   email: string;
   weddingDate: string;
   phone: string;
 }) {
-  // Configure via environment variables:
-  // SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, NOTIFY_EMAIL
-  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, NOTIFY_EMAIL } = process.env;
+  // Set SMTP_USER and SMTP_PASS in Vercel environment variables.
+  // Use lisbonfirstdance@gmail.com + a Gmail App Password for SMTP_PASS.
+  const { SMTP_USER, SMTP_PASS } = process.env;
 
-  if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !NOTIFY_EMAIL) {
-    console.warn("Email env vars not set — skipping email notification.");
+  if (!SMTP_USER || !SMTP_PASS) {
+    console.warn("SMTP_USER / SMTP_PASS not set — skipping email notification.");
     return;
   }
 
   const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
-    port: Number(SMTP_PORT) || 587,
-    secure: Number(SMTP_PORT) === 465,
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
 
   await transporter.sendMail({
-    from: `"Pedro Ling Website" <${SMTP_USER}>`,
+    from: `"Lisbon First Dance" <${SMTP_USER}>`,
     to: NOTIFY_EMAIL,
     subject: `💃 New Lead: ${data.name}`,
     html: `

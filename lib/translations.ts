@@ -80,7 +80,7 @@ export const translations = {
     aboutEyebrow: "Meet Your Instructor",
     aboutHeadline: "Pedro Ling",
     aboutP1:
-      "Pedro Ling is a professional dancer and performer with expertise spanning Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba.",
+      "Pedro Ling is a professional dancer and performer with expertise spanning Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz.",
     aboutP2:
       "With experience teaching ballroom and social dancing on board Princess Cruises, as well as an extensive performance career in musical theatre across Europe, Pedro brings both technical excellence and a warm, easy-going approach to every lesson.",
     aboutP3:
@@ -211,7 +211,7 @@ export const translations = {
     aboutEyebrow: "Conheça o Seu Instrutor",
     aboutHeadline: "Pedro Ling",
     aboutP1:
-      "Pedro Ling é um dançarino e artista profissional com experiência em Jazz, Ballroom, Latin, Tango Argentino, Salsa, Bachata e Kizomba.",
+      "Pedro Ling é um dançarino e artista profissional com experiência em Ballroom, Latin, Tango Argentino, Salsa, Bachata, Kizomba e Jazz.",
     aboutP2:
       "Com experiência a ensinar dança de salão a bordo das Princess Cruises e uma vasta carreira de palco no teatro musical por toda a Europa, o Pedro alia excelência técnica a uma abordagem calorosa e descontraída em cada aula.",
     aboutP3:
@@ -337,7 +337,7 @@ export const translations = {
     aboutEyebrow: "Conoce a Tu Instructor",
     aboutHeadline: "Pedro Ling",
     aboutP1:
-      "Pedro Ling es un bailarín y artista profesional con experiencia en Jazz, Ballroom, Latin, Tango Argentino, Salsa, Bachata y Kizomba.",
+      "Pedro Ling es un bailarín y artista profesional con experiencia en Ballroom, Latin, Tango Argentino, Salsa, Bachata, Kizomba y Jazz.",
     aboutP2:
       "Con experiencia enseñando baile de salón a bordo de Princess Cruises y una extensa carrera en teatro musical por toda Europa, Pedro combina excelencia técnica con un enfoque cálido y relajado en cada clase.",
     aboutP3:
