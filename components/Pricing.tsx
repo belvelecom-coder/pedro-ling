@@ -207,7 +207,7 @@ export default function Pricing() {
 
         {/* Wedding Dance */}
         <div className="mb-12 md:mb-14">
-          <h3 className="font-heading text-xl font-semibold mb-2 text-center" style={{ color: "#D4A373" }}>
+          <h3 className="font-heading text-xl font-semibold mb-2 text-center" style={{ color: "#E76F51" }}>
             {t.pricingWeddingLabel}
           </h3>
           <p className="text-center text-sm mb-7 md:mb-8" style={{ color: "#999999" }}>
@@ -222,7 +222,7 @@ export default function Pricing() {
 
         {/* Party Dance */}
         <div>
-          <h3 className="font-heading text-xl font-semibold mb-2 text-center" style={{ color: "#D4A373" }}>
+          <h3 className="font-heading text-xl font-semibold mb-2 text-center" style={{ color: "#E76F51" }}>
             {t.pricingPartyLabel}
           </h3>
           <p className="text-center text-sm mb-7 md:mb-8" style={{ color: "#999999" }}>
