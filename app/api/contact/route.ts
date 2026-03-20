@@ -1,7 +1,56 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { google } from "googleapis";
 
 const NOTIFY_EMAIL = "lisbonfirstdance@gmail.com";
+
+// ─── Google Sheets ───────────────────────────────────────────────────────────
+
+async function appendToSheet(data: {
+  name: string;
+  email: string;
+  weddingDate: string;
+  phone: string;
+}) {
+  const { GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_ID } =
+    process.env;
+
+  if (!GOOGLE_SERVICE_ACCOUNT_EMAIL || !GOOGLE_PRIVATE_KEY || !GOOGLE_SHEET_ID) {
+    console.warn("Google Sheets env vars not set — skipping sheet append.");
+    return;
+  }
+
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: GOOGLE_SERVICE_ACCOUNT_EMAIL,
+      // Vercel stores \n literally — replace back to real newlines
+      private_key: GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    },
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+  });
+
+  const sheets = google.sheets({ version: "v4", auth });
+
+  const timestamp = new Date().toLocaleString("pt-PT", {
+    timeZone: "Europe/Lisbon",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+  await sheets.spreadsheets.values.append({
+    spreadsheetId: GOOGLE_SHEET_ID,
+    range: "Sheet1!A:E",
+    valueInputOption: "USER_ENTERED",
+    requestBody: {
+      values: [[timestamp, data.name, data.email, data.weddingDate, data.phone || "—"]],
+    },
+  });
+}
+
+// ─── Email ───────────────────────────────────────────────────────────────────
 
 async function sendEmailNotification(data: {
   name: string;
@@ -9,8 +58,6 @@ async function sendEmailNotification(data: {
   weddingDate: string;
   phone: string;
 }) {
-  // Add SMTP_USER and SMTP_PASS in Vercel → Settings → Environment Variables.
-  // Use lisbonfirstdance@gmail.com + a Gmail App Password for SMTP_PASS.
   const { SMTP_USER, SMTP_PASS } = process.env;
 
   if (!SMTP_USER || !SMTP_PASS) {
@@ -42,6 +89,8 @@ async function sendEmailNotification(data: {
   });
 }
 
+// ─── Route handler ───────────────────────────────────────────────────────────
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -58,12 +107,17 @@ export async function POST(req: NextRequest) {
       phone: String(phone || "").slice(0, 50),
     };
 
-    try {
-      await sendEmailNotification(data);
-    } catch (emailErr) {
-      // Log the email error but don't fail the request —
-      // the customer sees success and we investigate separately.
-      console.error("Email notification failed:", emailErr);
+    // Run sheet append and email in parallel — neither failure blocks the response
+    const [sheetResult, emailResult] = await Promise.allSettled([
+      appendToSheet(data),
+      sendEmailNotification(data),
+    ]);
+
+    if (sheetResult.status === "rejected") {
+      console.error("Google Sheets append failed:", sheetResult.reason);
+    }
+    if (emailResult.status === "rejected") {
+      console.error("Email notification failed:", emailResult.reason);
     }
 
     return NextResponse.json({ success: true }, { status: 200 });

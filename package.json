@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^11.3.19",
+    "googleapis": "^171.4.0",
     "next": "15.3.9",
     "nodemailer": "^6.9.14",
     "react": "^19",
