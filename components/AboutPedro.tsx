@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useLanguage } from "@/lib/LanguageContext";
 
 const images = [
+  { src: "/images/pedro/pedro-4.JPG", alt: "Pedro Ling performing at a dance competition" },
   { src: "/images/pedro/pedro-2.jpg", alt: "Pedro Ling teaching a couple to dance" },
   { src: "/images/pedro/pedro-3.jpg", alt: "Pedro Ling performing on stage" },
 ];
@@ -41,14 +42,13 @@ export default function AboutPedro() {
 
           {/* Left: Image Carousel — full width on mobile */}
           <motion.div
-            className="relative w-full md:flex-shrink-0 md:w-[480px]"
-            style={{ height: "360px" }}
+            className="relative w-full md:flex-shrink-0 md:w-[400px]"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-xl" style={{ aspectRatio: "4/5" }}>
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
                   key={current}
@@ -69,7 +69,7 @@ export default function AboutPedro() {
                     alt={images[current].alt}
                     fill
                     className="object-cover object-top"
-                    sizes="(max-width: 768px) 100vw, 480px"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                 </motion.div>
               </AnimatePresence>
