@@ -42,7 +42,7 @@ async function appendToSheet(data: {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: GOOGLE_SHEET_ID,
-    range: "Sheet1!A:E",
+    range: "A:E",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [[timestamp, data.name, data.email, data.weddingDate, data.phone || "—"]],
