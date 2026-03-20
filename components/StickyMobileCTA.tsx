@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 200);
@@ -35,7 +37,7 @@ export default function StickyMobileCTA() {
             className="w-full h-full text-white font-semibold text-base shadow-2xl"
             style={{ background: "#E76F51" }}
           >
-            Book First Lesson – €49
+            {t.stickyCTA}
           </button>
         </motion.div>
       )}

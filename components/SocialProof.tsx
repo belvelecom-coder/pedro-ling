@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const testimonials = [
   {
@@ -36,32 +37,41 @@ function StarRating({ count }: { count: number }) {
 }
 
 export default function SocialProof() {
+  const { t } = useLanguage();
+
+  // Trust items without "100+ couples"
+  const trustItems = [
+    { icon: "⭐", label: t.trust5Star },
+    { icon: "🌍", label: t.trustLanguages },
+    { icon: "🏆", label: t.trustProfessional },
+  ];
+
   return (
     <section
-      className="py-[80px] px-5 md:px-[120px]"
+      className="py-[60px] md:py-[80px] px-4 sm:px-6 md:px-[120px]"
       style={{ background: "#FAF3E0" }}
     >
       <div className="max-w-[1200px] mx-auto">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "#D4A373" }}>
-            What Couples Say
+            {t.socialProofEyebrow}
           </p>
           <h2
             className="font-heading font-semibold"
-            style={{ fontSize: "clamp(26px, 4vw, 40px)", color: "#1A1A1A" }}
+            style={{ fontSize: "clamp(24px, 4vw, 40px)", color: "#1A1A1A" }}
           >
-            Real Couples, Real Results
+            {t.socialProofHeadline}
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {testimonials.map((t, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {testimonials.map((t_item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 24 }}
@@ -71,43 +81,38 @@ export default function SocialProof() {
               className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
               style={{ borderRadius: "12px" }}
             >
-              <StarRating count={t.stars} />
+              <StarRating count={t_item.stars} />
               <p
                 className="flex-1 mb-5 italic"
                 style={{ color: "#444444", fontSize: "15px", lineHeight: "1.7" }}
               >
-                "{t.quote}"
+                "{t_item.quote}"
               </p>
               <div className="flex items-center gap-3">
                 <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-semibold text-sm flex-shrink-0"
                   style={{ background: "#D4A373" }}
                 >
-                  {t.author[0]}
+                  {t_item.author[0]}
                 </div>
                 <span className="font-semibold text-sm" style={{ color: "#1A1A1A" }}>
-                  {t.author}
+                  {t_item.author}
                 </span>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust bar */}
+        {/* Trust bar — without "100+ couples" */}
         <motion.div
-          className="flex flex-wrap justify-center items-center gap-8 mt-14 pt-10 border-t"
+          className="flex flex-wrap justify-center items-center gap-6 md:gap-8 mt-12 pt-8 md:pt-10 border-t"
           style={{ borderColor: "#E8D9C0" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          {[
-            { icon: "⭐", label: "5-Star Rated" },
-            { icon: "💃", label: "100+ Couples Trained" },
-            { icon: "🌍", label: "EN · PT · ES" },
-            { icon: "🏆", label: "Professional Instructor" },
-          ].map((item, i) => (
+          {trustItems.map((item, i) => (
             <div key={i} className="flex items-center gap-2">
               <span className="text-xl">{item.icon}</span>
               <span className="text-sm font-medium" style={{ color: "#666666" }}>

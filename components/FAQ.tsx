@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
-const faqs = [
+const faqsEn = [
   {
     question: "We have zero dance experience — can we still do this?",
     answer:
@@ -36,7 +37,73 @@ const faqs = [
   },
 ];
 
-function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
+const faqsPt = [
+  {
+    question: "Não temos experiência em dança — conseguimos fazer isto?",
+    answer:
+      "Absolutamente. A grande maioria dos casais que faz aulas de primeira dança são principiantes completos. O Pedro especializa-se em transformar não-dançarinos em casais confiantes e com coreografias polidas. O foco está na ligação e confiança, não na perfeição técnica.",
+  },
+  {
+    question: "Quantas aulas precisamos?",
+    answer:
+      "Uma primeira dança normalmente requer entre 3 a 10 horas de instrução, dependendo da complexidade desejada. A maioria dos casais consegue uma coreografia bonita e confiante em 5 a 8 aulas.",
+  },
+  {
+    question: "Quando devemos começar?",
+    answer:
+      "Idealmente 3 a 6 meses antes do casamento. Começar cedo significa menos stress e mais tempo para praticar até os movimentos parecerem naturais.",
+  },
+  {
+    question: "E se estivermos nervosos?",
+    answer:
+      "É completamente normal — e é exatamente para isso que o Pedro existe. O seu estilo de ensino caloroso e paciente transforma o nervosismo em entusiasmo.",
+  },
+  {
+    question: "Podemos ter aulas em casa ou no local da cerimónia?",
+    answer:
+      "Sim! O Pedro oferece aulas no estúdio, em casa ou no espaço do evento. Aplica-se uma taxa adicional para visitas domiciliárias ou sessões no local.",
+  },
+  {
+    question: "Em que idiomas estão disponíveis as aulas?",
+    answer:
+      "O Pedro ensina em inglês, português e espanhol — o que for mais confortável para si.",
+  },
+];
+
+const faqsEs = [
+  {
+    question: "No tenemos experiencia en baile — ¿podemos hacer esto?",
+    answer:
+      "Absolutamente. La gran mayoría de las parejas que toman clases de primer baile son principiantes completos. Pedro se especializa en transformar a personas sin experiencia en parejas seguras con coreografías pulidas.",
+  },
+  {
+    question: "¿Cuántas clases necesitamos?",
+    answer:
+      "Un primer baile generalmente requiere entre 3 y 10 horas de instrucción. La mayoría de las parejas logran una coreografía bonita y segura en 5 a 8 clases.",
+  },
+  {
+    question: "¿Cuándo deberíamos empezar?",
+    answer:
+      "Idealmente 3 a 6 meses antes de la boda. Empezar pronto significa menos estrés y más tiempo para practicar.",
+  },
+  {
+    question: "¿Y si estamos nerviosos?",
+    answer:
+      "Es completamente normal. El estilo de enseñanza cálido y paciente de Pedro convierte los nervios en emoción.",
+  },
+  {
+    question: "¿Podemos tener clases en casa o en el lugar de la boda?",
+    answer:
+      "¡Sí! Pedro ofrece clases en su estudio, en tu casa o en el espacio del evento. Se aplica una tarifa adicional para visitas a domicilio o sesiones en el lugar.",
+  },
+  {
+    question: "¿En qué idiomas están disponibles las clases?",
+    answer:
+      "Pedro enseña en inglés, portugués y español — el que sea más cómodo para ti.",
+  },
+];
+
+function FAQItem({ faq, index }: { faq: { question: string; answer: string }; index: number }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -55,7 +122,7 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
       >
         <span
           className="font-semibold"
-          style={{ fontSize: "16px", color: "#1A1A1A", fontFamily: "var(--font-inter)" }}
+          style={{ fontSize: "15px", color: "#1A1A1A", fontFamily: "var(--font-inter)" }}
         >
           {faq.question}
         </span>
@@ -95,28 +162,31 @@ function FAQItem({ faq, index }: { faq: (typeof faqs)[0]; index: number }) {
 }
 
 export default function FAQ() {
+  const { t, language } = useLanguage();
+  const faqs = language === "pt" ? faqsPt : language === "es" ? faqsEs : faqsEn;
+
   return (
     <section
       id="faq"
-      className="py-[96px] px-5 md:px-[120px]"
+      className="py-[60px] md:py-[96px] px-4 sm:px-6 md:px-[120px]"
       style={{ background: "#FAF3E0" }}
     >
       <div className="max-w-[800px] mx-auto">
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "#D4A373" }}>
-            FAQ
+            {t.faqEyebrow}
           </p>
           <h2
             className="font-heading font-semibold"
-            style={{ fontSize: "clamp(26px, 4vw, 40px)", color: "#1A1A1A" }}
+            style={{ fontSize: "clamp(24px, 4vw, 40px)", color: "#1A1A1A" }}
           >
-            Common Questions
+            {t.faqHeadline}
           </h2>
         </motion.div>
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { LanguageProvider } from "@/lib/LanguageContext";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -18,13 +19,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro Ling | Wedding Dance Lessons",
+  title: "Lisbon First Dance | Wedding Dance Lessons",
   description:
-    "Feel confident and look amazing on your first dance — no experience needed. Personalized wedding dance lessons with Pedro Ling. Beginner-friendly, fast results. Book your first lesson for only €49.",
+    "Feel confident and look amazing on your first dance — no experience needed. Personalized wedding dance lessons in Lisbon. Beginner-friendly, fast results. Book your first lesson for only €49.",
   keywords:
-    "wedding dance lessons, first dance, Pedro Ling, ballroom, salsa, bachata, wedding choreography",
+    "wedding dance lessons, first dance, Lisbon First Dance, ballroom, salsa, bachata, wedding choreography, lisbon, portugal",
   openGraph: {
-    title: "Pedro Ling | Wedding Dance Lessons",
+    title: "Lisbon First Dance | Wedding Dance Lessons",
     description:
       "Your Perfect First Dance Starts Here. Personalized wedding dance lessons — no experience needed.",
     type: "website",
@@ -39,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
 
         {/* GA4 — replace GA_MEASUREMENT_ID with your actual ID */}
         <Script

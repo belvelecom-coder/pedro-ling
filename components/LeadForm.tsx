@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
 export default function LeadForm({ variant = "inline" }: { variant?: "inline" | "floating" }) {
   const [formState, setFormState] = useState<FormState>("idle");
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -63,10 +65,10 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
       >
         <div className="text-4xl mb-4">🎉</div>
         <h3 className="font-heading font-semibold text-xl mb-2" style={{ color: "#1A1A1A" }}>
-          You're all set!
+          {t.formSuccessTitle}
         </h3>
         <p style={{ color: "#666666", fontSize: "15px" }}>
-          Pedro will be in touch within 24 hours to confirm your lesson.
+          {t.formSuccessBody}
         </p>
       </motion.div>
     );
@@ -76,7 +78,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div>
         <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
-          Your Name *
+          {t.formNameLabel}
         </label>
         <input
           required
@@ -84,7 +86,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
           name="name"
           value={form.name}
           onChange={handleChange}
-          placeholder="Jane & John"
+          placeholder={t.formNamePlaceholder}
           className={inputClass}
           style={inputStyle}
         />
@@ -92,7 +94,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
 
       <div>
         <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
-          Email Address *
+          {t.formEmailLabel}
         </label>
         <input
           required
@@ -100,7 +102,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
           name="email"
           value={form.email}
           onChange={handleChange}
-          placeholder="you@example.com"
+          placeholder={t.formEmailPlaceholder}
           className={inputClass}
           style={inputStyle}
         />
@@ -108,7 +110,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
 
       <div>
         <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
-          Wedding Date *
+          {t.formWeddingDateLabel}
         </label>
         <input
           required
@@ -123,21 +125,21 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
 
       <div>
         <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
-          Phone (optional)
+          {t.formPhoneLabel}
         </label>
         <input
           type="tel"
           name="phone"
           value={form.phone}
           onChange={handleChange}
-          placeholder="+351 900 000 000"
+          placeholder={t.formPhonePlaceholder}
           className={inputClass}
           style={inputStyle}
         />
       </div>
 
       {formState === "error" && (
-        <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+        <p className="text-sm text-red-500">{t.formError}</p>
       )}
 
       <motion.button
@@ -154,11 +156,11 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
           cursor: formState === "loading" ? "not-allowed" : "pointer",
         }}
       >
-        {formState === "loading" ? "Sending…" : "Book My First Lesson – €49"}
+        {formState === "loading" ? t.formSending : t.formSubmit}
       </motion.button>
 
       <p className="text-center text-xs" style={{ color: "#AAAAAA" }}>
-        No spam. No commitment. Pedro will reach out within 24 hours.
+        {t.formDisclaimer}
       </p>
     </form>
   );

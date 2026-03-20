@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const images = [
   { src: "/images/pedro/pedro-2.jpg", alt: "Pedro Ling teaching a couple to dance" },
@@ -12,6 +13,7 @@ const images = [
 export default function AboutPedro() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const { t } = useLanguage();
 
   const go = (idx: number) => {
     setDirection(idx > current ? 1 : -1);
@@ -31,16 +33,16 @@ export default function AboutPedro() {
   return (
     <section
       id="about"
-      className="py-[96px] px-5 md:px-[120px]"
+      className="py-[60px] md:py-[96px] px-4 sm:px-6 md:px-[120px]"
       style={{ background: "#FFFFFF" }}
     >
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
 
-          {/* Left: Image Carousel */}
+          {/* Left: Image Carousel — full width on mobile */}
           <motion.div
-            className="relative flex-shrink-0 w-full md:w-[480px]"
-            style={{ height: "480px" }}
+            className="relative w-full md:flex-shrink-0 md:w-[480px]"
+            style={{ height: "360px" }}
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -100,10 +102,11 @@ export default function AboutPedro() {
                   key={i}
                   onClick={() => go(i)}
                   aria-label={`Go to image ${i + 1}`}
-                  className="w-2 h-2 rounded-full transition-all duration-300"
+                  className="rounded-full transition-all duration-300"
                   style={{
                     background: i === current ? "#D4A373" : "rgba(255,255,255,0.6)",
                     width: i === current ? "20px" : "8px",
+                    height: "8px",
                   }}
                 />
               ))}
@@ -112,37 +115,35 @@ export default function AboutPedro() {
 
           {/* Right: Text */}
           <motion.div
-            className="flex-1 max-w-[520px]"
+            className="flex-1 w-full md:max-w-[520px]"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
             <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "#D4A373" }}>
-              Meet Your Instructor
+              {t.aboutEyebrow}
             </p>
             <h2
               className="font-heading font-semibold mb-6"
-              style={{ fontSize: "clamp(26px, 4vw, 40px)", color: "#1A1A1A" }}
+              style={{ fontSize: "clamp(24px, 4vw, 40px)", color: "#1A1A1A" }}
             >
-              Pedro Ling
+              {t.aboutHeadline}
             </h2>
 
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
-              Pedro Ling is a professional dancer and performer with expertise spanning{" "}
-              <strong>Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba</strong>.
+              {t.aboutP1.split("Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba")[0]}
+              <strong>Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba</strong>
+              {t.aboutP1.split("Jazz, Ballroom, Latin, Argentine Tango, Salsa, Bachata, and Kizomba")[1]}
             </p>
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
-              With experience teaching ballroom and social dancing on board{" "}
-              <strong>Princess Cruises</strong>, as well as an extensive performance career in
-              musical theatre across Europe, Pedro brings both technical excellence and a warm,
-              easy-going approach to every lesson.
+              {t.aboutP2.split("Princess Cruises")[0]}
+              <strong>Princess Cruises</strong>
+              {t.aboutP2.split("Princess Cruises")[1]}
             </p>
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "32px" }}>
-              Whether you're a complete beginner or looking to perfect your first dance, Pedro will
-              make sure you feel confident, comfortable, and ready to shine on your wedding day —
-              with classes available in{" "}
-              <strong style={{ color: "#D4A373" }}>English, Portuguese, and Spanish</strong>.
+              {t.aboutP3}{" "}
+              <strong style={{ color: "#D4A373" }}>{t.aboutP3Lang}</strong>.
             </p>
 
             {/* Expertise tags */}
@@ -162,17 +163,17 @@ export default function AboutPedro() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={scrollToForm}
-              className="text-white font-semibold shadow-md hover:shadow-lg transition-shadow"
+              className="text-white font-semibold shadow-md hover:shadow-lg transition-shadow w-full sm:w-auto"
               style={{
                 background: "#E76F51",
                 borderRadius: "10px",
                 padding: "0 28px",
-                height: "56px",
+                height: "52px",
                 fontSize: "15px",
                 minWidth: "200px",
               }}
             >
-              Book a Lesson with Pedro
+              {t.aboutCTA}
             </motion.button>
           </motion.div>
         </div>

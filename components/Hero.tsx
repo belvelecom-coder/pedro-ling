@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   const trackClick = (label: string) => {
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("event", "cta_click", { cta_location: label });
@@ -22,92 +25,114 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex items-center pt-[72px] overflow-hidden"
-      style={{ minHeight: "720px", background: "#FFFFFF" }}
+      // top padding = announcement banner (44px) + header (72px) = 116px
+      className="relative flex items-center overflow-hidden"
+      style={{ minHeight: "720px", background: "#FFFFFF", paddingTop: "116px" }}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-5 md:px-[120px] py-[60px] md:py-[80px]">
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-[120px] py-8 md:py-[80px]">
+        {/* On mobile: image stacks ABOVE text (flex-col, not flex-col-reverse) */}
+        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+
+          {/* Mobile Image — shown first on mobile, hidden on desktop */}
+          <motion.div
+            className="block md:hidden w-full"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <div
+              className="relative w-full overflow-hidden shadow-xl"
+              style={{ height: "280px", borderRadius: "16px" }}
+            >
+              <Image
+                src="/images/hero/mobile-hero.png"
+                alt="Couple dancing at a wedding"
+                fill
+                className="object-cover object-center"
+                priority
+                sizes="100vw"
+              />
+            </div>
+          </motion.div>
 
           {/* Left: Text */}
           <motion.div
-            className="flex-1 md:max-w-[520px]"
+            className="flex-1 w-full md:max-w-[520px]"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Trust badge */}
+            {/* Trust badge — "5-Star Rated" only (no "100+ couples") */}
             <div
-              className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full text-sm font-medium"
+              className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full text-sm font-medium"
               style={{ background: "#FAF3E0", color: "#D4A373" }}
             >
               <span>⭐⭐⭐⭐⭐</span>
-              <span>5-Star Rated · 100+ Couples</span>
+              <span>{t.heroBadge}</span>
             </div>
 
             <h1
-              className="font-heading font-semibold text-[#1A1A1A] mb-6 text-balance"
-              style={{ fontSize: "clamp(32px, 5vw, 56px)", lineHeight: "1.15" }}
+              className="font-heading font-semibold text-[#1A1A1A] mb-5 text-balance"
+              style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: "1.15" }}
             >
-              Your Perfect First Dance{" "}
-              <span style={{ color: "#D4A373" }}>Starts Here</span>
+              {t.heroHeadline1}{" "}
+              <span style={{ color: "#D4A373" }}>{t.heroHeadlineAccent}</span>
             </h1>
 
             <p
-              className="text-[#666666] mb-8"
+              className="text-[#666666] mb-7"
               style={{
-                fontSize: "clamp(16px, 2vw, 18px)",
+                fontSize: "clamp(15px, 2vw, 18px)",
                 lineHeight: "1.7",
                 maxWidth: "480px",
               }}
             >
-              No experience needed. Personalized wedding dance lessons in just a
-              few sessions — available in English, Portuguese, or Spanish.
+              {t.heroSubtitle}
             </p>
 
             {/* CTA Group */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={scrollToForm}
-                className="text-white font-semibold shadow-lg transition-shadow hover:shadow-xl"
+                className="text-white font-semibold shadow-lg transition-shadow hover:shadow-xl text-center"
                 style={{
                   background: "#E76F51",
                   borderRadius: "10px",
                   padding: "0 28px",
-                  height: "56px",
-                  fontSize: "16px",
-                  minWidth: "220px",
+                  height: "52px",
+                  fontSize: "15px",
+                  minWidth: "200px",
                 }}
               >
-                Book Your First Lesson
+                {t.heroCTA}
               </motion.button>
 
               <button
                 onClick={scrollToPricing}
-                className="font-medium underline underline-offset-4 transition-colors"
+                className="font-medium underline underline-offset-4 transition-colors text-center sm:text-left"
                 style={{ color: "#D4A373", fontSize: "15px" }}
               >
-                See Pricing →
+                {t.heroSeePricing}
               </button>
             </div>
 
             {/* Micro-copy */}
             <p className="mt-4 text-sm" style={{ color: "#999999" }}>
-              Intro offer: first private lesson only <strong style={{ color: "#E76F51" }}>€49</strong> · Limited spots available
+              {t.heroMicro} <strong style={{ color: "#E76F51" }}>€49</strong> {t.heroLimited}
             </p>
           </motion.div>
 
-          {/* Right: Image */}
+          {/* Right: Desktop Image — hidden on mobile */}
           <motion.div
-            className="flex-1 w-full"
+            className="hidden md:flex flex-1 w-full justify-end"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
           >
-            {/* Desktop Image */}
             <div
-              className="hidden md:block relative w-full overflow-hidden shadow-2xl"
+              className="relative w-full overflow-hidden shadow-2xl"
               style={{ height: "520px", borderRadius: "16px", maxWidth: "600px" }}
             >
               <Image
@@ -124,21 +149,6 @@ export default function Hero() {
                   background:
                     "linear-gradient(135deg, rgba(212,163,115,0.08) 0%, transparent 60%)",
                 }}
-              />
-            </div>
-
-            {/* Mobile Image */}
-            <div
-              className="block md:hidden relative w-full overflow-hidden shadow-xl"
-              style={{ height: "320px", borderRadius: "16px" }}
-            >
-              <Image
-                src="/images/hero/mobile-hero.png"
-                alt="Couple dancing at a wedding"
-                fill
-                className="object-cover object-center"
-                priority
-                sizes="100vw"
               />
             </div>
           </motion.div>

@@ -1,3 +1,4 @@
+import AnnouncementBanner from "@/components/AnnouncementBanner";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SocialProof from "@/components/SocialProof";
@@ -13,6 +14,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <AnnouncementBanner />
       <Header />
       <main>
         <Hero />
