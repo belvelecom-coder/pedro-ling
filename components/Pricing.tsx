@@ -10,6 +10,7 @@ const weddingPlans = [
     highlight: true,
     subtitle: "Private lesson · up to 2 people · 60 min",
     price: "€49",
+    originalPrice: "€59",
     priceNote: "First lesson only",
     features: [
       "Perfect for beginners",
@@ -87,12 +88,13 @@ type PlanBase = {
   ctaKey: "bookFor49" | "bookNow";
 };
 
-type WeddingPlan = PlanBase & { badge: string | null; highlight: boolean };
+type WeddingPlan = PlanBase & { badge: string | null; highlight: boolean; originalPrice?: string };
 
 function PriceCard({ plan, index }: { plan: WeddingPlan | PlanBase; index: number }) {
   const { t } = useLanguage();
   const highlight = "highlight" in plan && plan.highlight;
   const badge = "badge" in plan ? (plan as WeddingPlan).badge : null;
+  const originalPrice = "originalPrice" in plan ? (plan as WeddingPlan).originalPrice : null;
 
   const handleClick = () => {
     if (typeof window !== "undefined" && (window as any).gtag) {
@@ -133,10 +135,17 @@ function PriceCard({ plan, index }: { plan: WeddingPlan | PlanBase; index: numbe
       </div>
 
       <div className="mb-5">
-        <span className="font-heading font-bold" style={{ fontSize: "36px", color: "#1A1A1A" }}>
-          {plan.price}
-        </span>
-        <span className="ml-2 text-sm" style={{ color: "#999999" }}>{plan.priceNote}</span>
+        <div className="flex items-baseline gap-2 flex-wrap">
+          <span className="font-heading font-bold" style={{ fontSize: "36px", color: "#1A1A1A" }}>
+            {plan.price}
+          </span>
+          {originalPrice && (
+            <span className="text-base font-medium line-through" style={{ color: "#BBBBBB" }}>
+              {originalPrice}
+            </span>
+          )}
+        </div>
+        <span className="text-sm" style={{ color: "#999999" }}>{plan.priceNote}</span>
       </div>
 
       <ul className="flex-1 mb-7 space-y-3">

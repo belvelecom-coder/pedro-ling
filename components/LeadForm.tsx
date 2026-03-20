@@ -114,10 +114,12 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
         </label>
         <input
           required
-          type="date"
+          type="text"
           name="weddingDate"
           value={form.weddingDate}
           onChange={handleChange}
+          placeholder="dd/mm/yyyy"
+          pattern="\d{2}/\d{2}/\d{4}"
           className={inputClass}
           style={inputStyle}
         />

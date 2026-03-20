@@ -148,7 +148,7 @@ export default function AboutPedro() {
 
             {/* Expertise tags */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {["Jazz", "Ballroom", "Latin", "Tango", "Salsa", "Bachata", "Kizomba"].map((s) => (
+              {["Ballroom", "Latin", "Tango", "Salsa", "Bachata", "Kizomba", "Jazz"].map((s) => (
                 <span
                   key={s}
                   className="px-3 py-1 rounded-full text-xs font-medium"

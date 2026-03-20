@@ -35,6 +35,11 @@ const faqsEn = [
     answer:
       "Pedro teaches in English, Portuguese, and Spanish — whichever you're most comfortable with.",
   },
+  {
+    question: "Where are you located?",
+    answer:
+      "Lessons take place in Lapa at LX Portal Yoga, Rua das Trinas 44, Lisbon ([View on Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisbon)). We can also arrange home or venue visits for an additional fee.",
+  },
 ];
 
 const faqsPt = [
@@ -68,6 +73,11 @@ const faqsPt = [
     answer:
       "O Pedro ensina em inglês, português e espanhol — o que for mais confortável para si.",
   },
+  {
+    question: "Onde ficam as aulas?",
+    answer:
+      "As aulas realizam-se em Lapa, no LX Portal Yoga, Rua das Trinas 44, Lisboa ([Ver no Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisboa)). Também podemos organizar aulas em casa ou no local do evento mediante taxa adicional.",
+  },
 ];
 
 const faqsEs = [
@@ -100,6 +110,11 @@ const faqsEs = [
     question: "¿En qué idiomas están disponibles las clases?",
     answer:
       "Pedro enseña en inglés, portugués y español — el que sea más cómodo para ti.",
+  },
+  {
+    question: "¿Dónde se realizan las clases?",
+    answer:
+      "Las clases tienen lugar en Lapa, en LX Portal Yoga, Rua das Trinas 44, Lisboa ([Ver en Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisboa)). También podemos organizar clases en casa o en el lugar del evento con un cargo adicional.",
   },
 ];
 
@@ -152,7 +167,23 @@ function FAQItem({ faq, index }: { faq: { question: string; answer: string }; in
               className="pb-5"
               style={{ fontSize: "15px", color: "#666666", lineHeight: "1.75" }}
             >
-              {faq.answer}
+              {faq.answer.split(/(\[[^\]]+\]\(https?:\/\/[^)]+\))/g).map((part, idx) => {
+                const mdLink = part.match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
+                if (mdLink) {
+                  return (
+                    <a
+                      key={idx}
+                      href={mdLink[2]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#D4A373", textDecoration: "underline" }}
+                    >
+                      {mdLink[1]}
+                    </a>
+                  );
+                }
+                return part;
+              })}
             </p>
           </motion.div>
         )}

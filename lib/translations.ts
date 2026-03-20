@@ -44,9 +44,9 @@ export const translations = {
     howEyebrow: "Simple Process",
     howHeadline: "How It Works",
     howSubtitle: "Three easy steps from nervous beginner to confident dancer.",
-    step1Title: "Book a Consultation",
+    step1Title: "Book your First Class",
     step1Body:
-      "Schedule a free 15-minute call so Pedro can understand your vision, song choice, and timeline.",
+      "Schedule your first private session to discuss your vision, song choice, and timeline.",
     step2Title: "Learn Your Personalized Routine",
     step2Body:
       "Work through a choreography tailored to you and your song — at your own pace, in English, Portuguese, or Spanish.",
@@ -65,7 +65,7 @@ export const translations = {
       "Your choreography is built around your music and personality. No cookie-cutter routines.",
     benefit3Title: "Simple, Flexible Scheduling",
     benefit3Body:
-      "Book lessons around your busy wedding prep. Evening, weekend, and on-location sessions available.",
+      "Book lessons around your busy wedding prep. Daytime, evenings, or weekends at our studio in central Lisbon.",
     benefit4Title: "Fast Progress in Just a Few Lessons",
     benefit4Body:
       "Most couples feel confident after 3–5 sessions. Pedro's structured approach makes learning efficient and fun.",
@@ -92,9 +92,9 @@ export const translations = {
     pricingEyebrow: "Pricing",
     pricingHeadline: "Simple, Transparent Pricing",
     pricingSubtitle: "Start with just one lesson. No commitment required.",
-    pricingWeddingLabel: "💍 Wedding Dance",
+    pricingWeddingLabel: "First Dance",
     pricingWeddingNote: "Private lesson · up to 2 people · 60 minutes",
-    pricingPartyLabel: "🎉 Party Dance",
+    pricingPartyLabel: "Wedding Party Dance",
     pricingPartyNote: "Group lesson · 3–6 people · 60 minutes",
     pricingFootnote:
       "* Additional fee applies for home visits or on-location sessions (event space).",
@@ -111,7 +111,7 @@ export const translations = {
     finalBody:
       "Book your first lesson today and take the first step toward a dance you and your guests will never forget.",
     finalRisk1: "💰 Intro offer: first private lesson only €49",
-    finalRisk2: "📅 Flexible scheduling — evenings & weekends",
+    finalRisk2: "📅 Flexible scheduling: daytime, evenings & weekends",
     finalRisk3: "🌍 Available in English, Portuguese & Spanish",
     finalRisk4: "✅ No experience needed whatsoever",
     finalFormTitle: "Claim Your €49 Intro Lesson",
@@ -177,9 +177,9 @@ export const translations = {
     howEyebrow: "Processo Simples",
     howHeadline: "Como Funciona",
     howSubtitle: "Três passos fáceis de principiante nervoso a dançarino confiante.",
-    step1Title: "Marque uma Consulta",
+    step1Title: "Reserve a Sua Primeira Aula",
     step1Body:
-      "Agende uma chamada gratuita de 15 minutos para o Pedro conhecer a sua visão, música e calendário.",
+      "Agende a sua primeira sessão privada para falar sobre a sua visão, música e data do casamento.",
     step2Title: "Aprenda a Sua Coreografia Personalizada",
     step2Body:
       "Trabalhe uma coreografia adaptada a si e à sua música — ao seu ritmo, em inglês, português ou espanhol.",
@@ -197,7 +197,7 @@ export const translations = {
       "A sua coreografia é construída à volta da sua música e personalidade. Sem rotinas genéricas.",
     benefit3Title: "Horários Flexíveis e Simples",
     benefit3Body:
-      "Marque aulas em torno da sua agenda de casamento. Sessões à noite, ao fim de semana e no local disponíveis.",
+      "Marque aulas em torno da sua agenda de casamento. De dia, à noite ou ao fim de semana no nosso estúdio no centro de Lisboa.",
     benefit4Title: "Progresso Rápido em Poucas Aulas",
     benefit4Body:
       "A maioria dos casais sente-se confiante após 3–5 sessões. A abordagem estruturada do Pedro torna a aprendizagem eficaz e divertida.",
@@ -222,9 +222,9 @@ export const translations = {
     pricingEyebrow: "Preços",
     pricingHeadline: "Preços Simples e Transparentes",
     pricingSubtitle: "Comece com apenas uma aula. Sem compromisso.",
-    pricingWeddingLabel: "💍 Dança de Casamento",
+    pricingWeddingLabel: "Primeira Dança",
     pricingWeddingNote: "Aula privada · até 2 pessoas · 60 minutos",
-    pricingPartyLabel: "🎉 Dança de Festa",
+    pricingPartyLabel: "Dança de Festa de Casamento",
     pricingPartyNote: "Aula em grupo · 3–6 pessoas · 60 minutos",
     pricingFootnote:
       "* Aplica-se uma taxa adicional para visitas domiciliárias ou sessões no local do evento.",
@@ -239,7 +239,7 @@ export const translations = {
     finalBody:
       "Reserve a sua primeira aula hoje e dê o primeiro passo para uma dança que você e os seus convidados nunca vão esquecer.",
     finalRisk1: "💰 Oferta especial: primeira aula privada por apenas €49",
-    finalRisk2: "📅 Horários flexíveis — noites e fins de semana",
+    finalRisk2: "📅 Horários flexíveis: manhã, noite e fins de semana",
     finalRisk3: "🌍 Disponível em inglês, português e espanhol",
     finalRisk4: "✅ Sem experiência necessária",
     finalFormTitle: "Reserve a Sua Aula Intro por €49",
@@ -303,9 +303,9 @@ export const translations = {
     howEyebrow: "Proceso Sencillo",
     howHeadline: "Cómo Funciona",
     howSubtitle: "Tres pasos fáciles de principiante nervioso a bailarín seguro.",
-    step1Title: "Reserva una Consulta",
+    step1Title: "Reserva tu Primera Clase",
     step1Body:
-      "Programa una llamada gratuita de 15 minutos para que Pedro entienda tu visión, canción y calendario.",
+      "Programa tu primera sesión privada para hablar sobre tu visión, canción y fecha de boda.",
     step2Title: "Aprende Tu Coreografía Personalizada",
     step2Body:
       "Trabaja una coreografía adaptada a ti y tu canción — a tu ritmo, en inglés, portugués o español.",
@@ -323,7 +323,7 @@ export const translations = {
       "Tu coreografía se crea alrededor de tu música y personalidad. Sin rutinas genéricas.",
     benefit3Title: "Horarios Simples y Flexibles",
     benefit3Body:
-      "Reserva clases según tu agenda de boda. Sesiones de tarde, fin de semana y en el lugar disponibles.",
+      "Reserva clases según tu agenda de boda. De día, por las noches o los fines de semana en nuestro estudio en el centro de Lisboa.",
     benefit4Title: "Progreso Rápido en Pocas Clases",
     benefit4Body:
       "La mayoría de las parejas se sienten seguros tras 3–5 sesiones. El enfoque estructurado de Pedro hace el aprendizaje eficiente y divertido.",
@@ -348,9 +348,9 @@ export const translations = {
     pricingEyebrow: "Precios",
     pricingHeadline: "Precios Simples y Transparentes",
     pricingSubtitle: "Empieza con una sola clase. Sin compromiso.",
-    pricingWeddingLabel: "💍 Baile de Boda",
+    pricingWeddingLabel: "Primer Baile",
     pricingWeddingNote: "Clase privada · hasta 2 personas · 60 minutos",
-    pricingPartyLabel: "🎉 Baile de Fiesta",
+    pricingPartyLabel: "Baile de Fiesta de Boda",
     pricingPartyNote: "Clase en grupo · 3–6 personas · 60 minutos",
     pricingFootnote:
       "* Se aplica tarifa adicional para visitas a domicilio o sesiones en el lugar del evento.",
@@ -365,7 +365,7 @@ export const translations = {
     finalBody:
       "Reserva tu primera clase hoy y da el primer paso hacia un baile que tú y tus invitados nunca olvidarán.",
     finalRisk1: "💰 Oferta especial: primera clase privada por solo €49",
-    finalRisk2: "📅 Horarios flexibles — tardes y fines de semana",
+    finalRisk2: "📅 Horarios flexibles: mañanas, tardes y fines de semana",
     finalRisk3: "🌍 Disponible en inglés, portugués y español",
     finalRisk4: "✅ Sin experiencia necesaria",
     finalFormTitle: "Reserva Tu Clase Intro por €49",
