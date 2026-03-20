@@ -1,0 +1,122 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const testimonials = [
+  {
+    quote:
+      "Pedro is so patient and kind. He provided lots of feedback and encouragement, so we saw progress really fast! Highly recommend!",
+    author: "Marie",
+    stars: 5,
+  },
+  {
+    quote:
+      "We got so many compliments about our dance! It was so beautiful to have the perfect choreography to our special song. Thank you!",
+    author: "Patricia",
+    stars: 5,
+  },
+  {
+    quote:
+      "The classes were so much fun! We looked forward to it every week. In the end we felt very confident and excited to dance in front of all our friends and family.",
+    author: "Sophia",
+    stars: 5,
+  },
+];
+
+function StarRating({ count }: { count: number }) {
+  return (
+    <div className="flex gap-1 mb-3">
+      {Array.from({ length: count }).map((_, i) => (
+        <svg key={i} width="18" height="18" viewBox="0 0 20 20" fill="#D4A373">
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
+export default function SocialProof() {
+  return (
+    <section
+      className="py-[80px] px-5 md:px-[120px]"
+      style={{ background: "#FAF3E0" }}
+    >
+      <div className="max-w-[1200px] mx-auto">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: "#D4A373" }}>
+            What Couples Say
+          </p>
+          <h2
+            className="font-heading font-semibold"
+            style={{ fontSize: "clamp(26px, 4vw, 40px)", color: "#1A1A1A" }}
+          >
+            Real Couples, Real Results
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="flex flex-col bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow"
+              style={{ borderRadius: "12px" }}
+            >
+              <StarRating count={t.stars} />
+              <p
+                className="flex-1 mb-5 italic"
+                style={{ color: "#444444", fontSize: "15px", lineHeight: "1.7" }}
+              >
+                "{t.quote}"
+              </p>
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-semibold text-sm"
+                  style={{ background: "#D4A373" }}
+                >
+                  {t.author[0]}
+                </div>
+                <span className="font-semibold text-sm" style={{ color: "#1A1A1A" }}>
+                  {t.author}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Trust bar */}
+        <motion.div
+          className="flex flex-wrap justify-center items-center gap-8 mt-14 pt-10 border-t"
+          style={{ borderColor: "#E8D9C0" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {[
+            { icon: "⭐", label: "5-Star Rated" },
+            { icon: "💃", label: "100+ Couples Trained" },
+            { icon: "🌍", label: "EN · PT · ES" },
+            { icon: "🏆", label: "Professional Instructor" },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <span className="text-xl">{item.icon}</span>
+              <span className="text-sm font-medium" style={{ color: "#666666" }}>
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

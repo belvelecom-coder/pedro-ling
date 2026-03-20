@@ -1,0 +1,165 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+type FormState = "idle" | "loading" | "success" | "error";
+
+export default function LeadForm({ variant = "inline" }: { variant?: "inline" | "floating" }) {
+  const [formState, setFormState] = useState<FormState>("idle");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    weddingDate: "",
+    phone: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormState("loading");
+
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("event", "form_submission", { form_location: variant });
+    }
+    if (typeof window !== "undefined" && (window as any).fbq) {
+      (window as any).fbq("track", "Lead");
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+      setFormState("success");
+      setForm({ name: "", email: "", weddingDate: "", phone: "" });
+    } catch {
+      setFormState("error");
+    }
+  };
+
+  const inputClass =
+    "w-full px-4 bg-white border rounded-lg text-sm focus:outline-none focus:ring-2 transition-shadow";
+  const inputStyle = {
+    height: "48px",
+    borderRadius: "8px",
+    borderColor: "#E8D9C0",
+    color: "#1A1A1A",
+    fontSize: "14px",
+  };
+
+  if (formState === "success") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="text-center py-8 px-6"
+      >
+        <div className="text-4xl mb-4">🎉</div>
+        <h3 className="font-heading font-semibold text-xl mb-2" style={{ color: "#1A1A1A" }}>
+          You're all set!
+        </h3>
+        <p style={{ color: "#666666", fontSize: "15px" }}>
+          Pedro will be in touch within 24 hours to confirm your lesson.
+        </p>
+      </motion.div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <div>
+        <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
+          Your Name *
+        </label>
+        <input
+          required
+          type="text"
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          placeholder="Jane & John"
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
+          Email Address *
+        </label>
+        <input
+          required
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={handleChange}
+          placeholder="you@example.com"
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
+          Wedding Date *
+        </label>
+        <input
+          required
+          type="date"
+          name="weddingDate"
+          value={form.weddingDate}
+          onChange={handleChange}
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
+          Phone (optional)
+        </label>
+        <input
+          type="tel"
+          name="phone"
+          value={form.phone}
+          onChange={handleChange}
+          placeholder="+351 900 000 000"
+          className={inputClass}
+          style={inputStyle}
+        />
+      </div>
+
+      {formState === "error" && (
+        <p className="text-sm text-red-500">Something went wrong. Please try again.</p>
+      )}
+
+      <motion.button
+        type="submit"
+        disabled={formState === "loading"}
+        whileHover={{ scale: formState === "loading" ? 1 : 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        className="w-full font-semibold text-white transition-opacity"
+        style={{
+          height: "52px",
+          borderRadius: "10px",
+          background: formState === "loading" ? "#CCAA88" : "#E76F51",
+          fontSize: "15px",
+          cursor: formState === "loading" ? "not-allowed" : "pointer",
+        }}
+      >
+        {formState === "loading" ? "Sending…" : "Book My First Lesson – €49"}
+      </motion.button>
+
+      <p className="text-center text-xs" style={{ color: "#AAAAAA" }}>
+        No spam. No commitment. Pedro will reach out within 24 hours.
+      </p>
+    </form>
+  );
+}
