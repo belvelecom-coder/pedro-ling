@@ -3,81 +3,67 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const weddingPlans = [
-  {
-    name: "Intro Offer",
-    badge: "Start Here",
-    highlight: true,
-    subtitle: "Private lesson · up to 2 people · 60 min",
-    price: "€49",
-    originalPrice: "€59",
-    priceNote: "First lesson only",
-    features: [
-      "Perfect for beginners",
-      "Personalized to your song",
-      "No experience needed",
-      "Home / venue visit available*",
-    ],
-    ctaKey: "bookFor49" as const,
-  },
-  {
-    name: "5-Class Pack",
-    badge: null,
-    highlight: false,
-    subtitle: "Private lessons · up to 2 people · 60 min each",
-    price: "€275",
-    priceNote: "€55 per class",
-    features: [
-      "Full choreography development",
-      "Progress at your own pace",
-      "Recorded for home practice",
-      "Home / venue visit available*",
-    ],
-    ctaKey: "bookNow" as const,
-  },
-  {
-    name: "10-Class Pack",
-    badge: "Best Value",
-    highlight: false,
-    subtitle: "Private lessons · up to 2 people · 60 min each",
-    price: "€500",
-    priceNote: "€50 per class",
-    features: [
-      "Complete wedding dance package",
-      "Complex choreography welcome",
-      "Multiple style options",
-      "Home / venue visit available*",
-    ],
-    ctaKey: "bookNow" as const,
-  },
-];
+type Language = "en" | "pt";
 
-const partyPlans = [
-  {
-    name: "Single Class",
-    subtitle: "Group lesson · 3–6 people · 60 min",
-    price: "€99",
-    priceNote: "Per session",
-    features: ["Fun group session", "Bridal party welcome", "Home / venue visit available*"],
-    ctaKey: "bookNow" as const,
-  },
-  {
-    name: "5-Class Pack",
-    subtitle: "Group lessons · 3–6 people · 60 min each",
-    price: "€475",
-    priceNote: "€95 per class",
-    features: ["Build on each session", "Great for parties / events", "Home / venue visit available*"],
-    ctaKey: "bookNow" as const,
-  },
-  {
-    name: "10-Class Pack",
-    subtitle: "Group lessons · 3–6 people · 60 min each",
-    price: "€900",
-    priceNote: "€90 per class",
-    features: ["Complete group programme", "Perfect for dance-loving groups", "Home / venue visit available*"],
-    ctaKey: "bookNow" as const,
-  },
-];
+function getWeddingPlans(lang: Language) {
+  const d = {
+    en: {
+      p1Name: "Intro Offer", p1Badge: "Start Here",
+      p1Sub: "Private lesson · up to 2 people · 60 min", p1Note: "First lesson only",
+      p1F: ["Perfect for beginners", "Personalized to your song", "No experience needed", "Home / venue visit available*"],
+      p2Name: "5-Class Pack",
+      p2Sub: "Private lessons · up to 2 people · 60 min each", p2Note: "€55 per class",
+      p2F: ["Full choreography development", "Progress at your own pace", "Recorded for home practice", "Home / venue visit available*"],
+      p3Name: "10-Class Pack", p3Badge: "Best Value",
+      p3Sub: "Private lessons · up to 2 people · 60 min each", p3Note: "€50 per class",
+      p3F: ["Complete wedding dance package", "Complex choreography welcome", "Multiple style options", "Home / venue visit available*"],
+    },
+    pt: {
+      p1Name: "Oferta Introdutória", p1Badge: "Comece Aqui",
+      p1Sub: "Aula privada · até 2 pessoas · 60 min", p1Note: "Apenas a primeira aula",
+      p1F: ["Perfeito para principiantes", "Personalizado para a sua música", "Sem experiência necessária", "Visita a casa / local disponível*"],
+      p2Name: "Pacote de 5 Aulas",
+      p2Sub: "Aulas privadas · até 2 pessoas · 60 min cada", p2Note: "€55 por aula",
+      p2F: ["Desenvolvimento completo da coreografia", "Progrida ao seu ritmo", "Gravado para praticar em casa", "Visita a casa / local disponível*"],
+      p3Name: "Pacote de 10 Aulas", p3Badge: "Melhor Valor",
+      p3Sub: "Aulas privadas · até 2 pessoas · 60 min cada", p3Note: "€50 por aula",
+      p3F: ["Pacote completo de Dança dos Noivos", "Coreografia complexa bem-vinda", "Várias opções de estilo", "Visita a casa / local disponível*"],
+    },
+  }[lang];
+
+  return [
+    { name: d.p1Name, badge: d.p1Badge, highlight: true, subtitle: d.p1Sub, price: "€49", originalPrice: "€59", priceNote: d.p1Note, features: d.p1F, ctaKey: "bookFor49" as const },
+    { name: d.p2Name, badge: null, highlight: false, subtitle: d.p2Sub, price: "€275", priceNote: d.p2Note, features: d.p2F, ctaKey: "bookNow" as const },
+    { name: d.p3Name, badge: d.p3Badge, highlight: false, subtitle: d.p3Sub, price: "€500", priceNote: d.p3Note, features: d.p3F, ctaKey: "bookNow" as const },
+  ];
+}
+
+function getPartyPlans(lang: Language) {
+  const d = {
+    en: {
+      p1Name: "Single Class", p1Sub: "Group lesson · 3–6 people · 60 min", p1Note: "Per session",
+      p1F: ["Fun group session", "Bridal party welcome", "Home / venue visit available*"],
+      p2Name: "5-Class Pack", p2Sub: "Group lessons · 3–6 people · 60 min each", p2Note: "€95 per class",
+      p2F: ["Build on each session", "Great for parties / events", "Home / venue visit available*"],
+      p3Name: "10-Class Pack", p3Sub: "Group lessons · 3–6 people · 60 min each", p3Note: "€90 per class",
+      p3F: ["Complete group programme", "Perfect for dance-loving groups", "Home / venue visit available*"],
+    },
+    pt: {
+      p1Name: "Aula Individual", p1Sub: "Aula em grupo · 3–6 pessoas · 60 min", p1Note: "Por sessão",
+      p1F: ["Sessão em grupo divertida", "Grupo de casamento bem-vindo", "Visita a casa / local disponível*"],
+      p2Name: "Pacote de 5 Aulas", p2Sub: "Aulas em grupo · 3–6 pessoas · 60 min cada", p2Note: "€95 por aula",
+      p2F: ["Construa em cada sessão", "Ótimo para festas / eventos", "Visita a casa / local disponível*"],
+      p3Name: "Pacote de 10 Aulas", p3Sub: "Aulas em grupo · 3–6 pessoas · 60 min cada", p3Note: "€90 por aula",
+      p3F: ["Programa completo em grupo", "Perfeito para grupos que adoram dançar", "Visita a casa / local disponível*"],
+    },
+  }[lang];
+
+  return [
+    { name: d.p1Name, subtitle: d.p1Sub, price: "€99", priceNote: d.p1Note, features: d.p1F, ctaKey: "bookNow" as const },
+    { name: d.p2Name, subtitle: d.p2Sub, price: "€475", priceNote: d.p2Note, features: d.p2F, ctaKey: "bookNow" as const },
+    { name: d.p3Name, subtitle: d.p3Sub, price: "€900", priceNote: d.p3Note, features: d.p3F, ctaKey: "bookNow" as const },
+  ];
+}
 
 type PlanBase = {
   name: string;
@@ -175,7 +161,9 @@ function PriceCard({ plan, index }: { plan: WeddingPlan | PlanBase; index: numbe
 }
 
 export default function Pricing() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const weddingPlans = getWeddingPlans(language as Language);
+  const partyPlans = getPartyPlans(language as Language);
 
   return (
     <section

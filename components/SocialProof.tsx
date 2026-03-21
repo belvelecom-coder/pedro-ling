@@ -3,26 +3,42 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
 
-const testimonials = [
+const testimonialsEn = [
   {
-    quote:
-      "Pedro is so patient and kind. He provided lots of feedback and encouragement, so we saw progress really fast! Highly recommend!",
+    quote: "Pedro is so patient and kind. He provided lots of feedback and encouragement, so we saw progress really fast! Highly recommend!",
     author: "Marie",
     stars: 5,
   },
   {
-    quote:
-      "We got so many compliments about our dance! It was so beautiful to have the perfect choreography to our special song. Thank you!",
+    quote: "We got so many compliments about our dance! It was so beautiful to have the perfect choreography to our special song. Thank you!",
     author: "Patricia",
     stars: 5,
   },
   {
-    quote:
-      "The classes were so much fun! We looked forward to it every week. In the end we felt very confident and excited to dance in front of all our friends and family.",
+    quote: "The classes were so much fun! We looked forward to it every week. In the end we felt very confident and excited to dance in front of all our friends and family.",
     author: "Sophia",
     stars: 5,
   },
 ];
+
+const testimonialsPt = [
+  {
+    quote: "O Pedro tem muita paciência e simpatia. Deu-nos muito feedback e encorajamento, e evoluímos muito rapidamente! Recomendo muito!",
+    author: "Marie",
+    stars: 5,
+  },
+  {
+    quote: "Recebemos tantos elogios pela nossa dança! Foi tão bonito ter a coreografia perfeita para a nossa música especial. Obrigada!",
+    author: "Patricia",
+    stars: 5,
+  },
+  {
+    quote: "As aulas foram tão divertidas! Esperávamos por elas todas as semanas. No final, sentimo-nos muito confiantes e entusiasmados para dançar à frente de todos os nossos amigos e família.",
+    author: "Sophia",
+    stars: 5,
+  },
+];
+
 
 function StarRating({ count }: { count: number }) {
   return (
@@ -37,7 +53,8 @@ function StarRating({ count }: { count: number }) {
 }
 
 export default function SocialProof() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const testimonials = language === "pt" ? testimonialsPt : testimonialsEn;
 
   // Trust items without "100+ couples"
   const trustItems = [

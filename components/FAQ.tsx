@@ -46,22 +46,22 @@ const faqsPt = [
   {
     question: "Não temos experiência em dança — conseguimos fazer isto?",
     answer:
-      "Absolutamente. A grande maioria dos casais que faz aulas de primeira dança são principiantes completos. O Pedro especializa-se em transformar não-dançarinos em casais confiantes e com coreografias polidas. O foco está na ligação e confiança, não na perfeição técnica.",
+      "Absolutamente. A grande maioria dos casais que fazem aulas de Dança dos Noivos, são principiantes ou sem experiência. O Pedro especializa-se em transformar não-bailarinos em casais confiantes e com coreografias adequadas. O foco está na ligação e confiança, não na perfeição técnica.",
   },
   {
     question: "Quantas aulas precisamos?",
     answer:
-      "Uma primeira dança normalmente requer entre 3 a 10 horas de instrução, dependendo da complexidade desejada. A maioria dos casais consegue uma coreografia bonita e confiante em 5 a 8 aulas.",
+      "A Dança dos Noivos normalmente requer entre 5 a 10 horas de instrução, dependendo da complexidade desejada. Nesse tempo, a maioria dos casais consegue uma coreografia bonita e confiante.",
   },
   {
     question: "Quando devemos começar?",
     answer:
-      "Idealmente 3 a 6 meses antes do casamento. Começar cedo significa menos stress e mais tempo para praticar até os movimentos parecerem naturais.",
+      "Idealmente 3 a 6 meses antes do casamento. Começar cedo significa menos stress e mais tempo para praticar até os movimentos ficarem naturais. Não quer dizer que não seja possível mais perto do casamento.",
   },
   {
     question: "E se estivermos nervosos?",
     answer:
-      "É completamente normal — e é exatamente para isso que o Pedro existe. O seu estilo de ensino caloroso e paciente transforma o nervosismo em entusiasmo.",
+      "É completamente normal e é exatamente para isso que estas aulas existem. O Pedro, com o seu estilo de ensino caloroso e paciente, transforma o nervosismo em entusiasmo.",
   },
   {
     question: "Podemos ter aulas em casa ou no local da cerimónia?",
@@ -71,52 +71,15 @@ const faqsPt = [
   {
     question: "Em que idiomas estão disponíveis as aulas?",
     answer:
-      "O Pedro ensina em inglês, português e espanhol — o que for mais confortável para si.",
+      "O Pedro ensina em inglês, português e espanhol, o que for mais confortável para si.",
   },
   {
     question: "Onde ficam as aulas?",
     answer:
-      "As aulas realizam-se em Lapa, no LX Portal Yoga, Rua das Trinas 44, Lisboa ([Ver no Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisboa)). Também podemos organizar aulas em casa ou no local do evento mediante taxa adicional.",
+      "As aulas realizam-se na Lapa, no estúdio LX Portal Yoga, Rua das Trinas 44, Lisboa ([Ver no Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisboa)). Também podemos organizar aulas em casa ou no local do evento mediante taxa adicional.",
   },
 ];
 
-const faqsEs = [
-  {
-    question: "No tenemos experiencia en baile — ¿podemos hacer esto?",
-    answer:
-      "Absolutamente. La gran mayoría de las parejas que toman clases de primer baile son principiantes completos. Pedro se especializa en transformar a personas sin experiencia en parejas seguras con coreografías pulidas.",
-  },
-  {
-    question: "¿Cuántas clases necesitamos?",
-    answer:
-      "Un primer baile generalmente requiere entre 3 y 10 horas de instrucción. La mayoría de las parejas logran una coreografía bonita y segura en 5 a 8 clases.",
-  },
-  {
-    question: "¿Cuándo deberíamos empezar?",
-    answer:
-      "Idealmente 3 a 6 meses antes de la boda. Empezar pronto significa menos estrés y más tiempo para practicar.",
-  },
-  {
-    question: "¿Y si estamos nerviosos?",
-    answer:
-      "Es completamente normal. El estilo de enseñanza cálido y paciente de Pedro convierte los nervios en emoción.",
-  },
-  {
-    question: "¿Podemos tener clases en casa o en el lugar de la boda?",
-    answer:
-      "¡Sí! Pedro ofrece clases en su estudio, en tu casa o en el espacio del evento. Se aplica una tarifa adicional para visitas a domicilio o sesiones en el lugar.",
-  },
-  {
-    question: "¿En qué idiomas están disponibles las clases?",
-    answer:
-      "Pedro enseña en inglés, portugués y español — el que sea más cómodo para ti.",
-  },
-  {
-    question: "¿Dónde se realizan las clases?",
-    answer:
-      "Las clases tienen lugar en Lapa, en LX Portal Yoga, Rua das Trinas 44, Lisboa ([Ver en Google Maps](https://maps.google.com/?q=Rua+das+Trinas+44+Lisboa)). También podemos organizar clases en casa o en el lugar del evento con un cargo adicional.",
-  },
-];
 
 function FAQItem({ faq, index }: { faq: { question: string; answer: string }; index: number }) {
   const [open, setOpen] = useState(false);
@@ -194,7 +157,7 @@ function FAQItem({ faq, index }: { faq: { question: string; answer: string }; in
 
 export default function FAQ() {
   const { t, language } = useLanguage();
-  const faqs = language === "pt" ? faqsPt : language === "es" ? faqsEs : faqsEn;
+  const faqs = language === "pt" ? faqsPt : faqsEn;
 
   return (
     <section

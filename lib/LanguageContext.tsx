@@ -16,7 +16,6 @@ function detectLanguage(): Language {
   if (typeof navigator === "undefined") return "en";
   const lang = navigator.language?.toLowerCase() ?? "";
   if (lang.startsWith("pt")) return "pt";
-  if (lang.startsWith("es")) return "es";
   return "en";
 }
 
@@ -26,7 +25,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Auto-detect on first load (client only), respect stored preference
     const stored = localStorage.getItem("lfd_lang") as Language | null;
-    if (stored && ["en", "pt", "es"].includes(stored)) {
+    if (stored && ["en", "pt"].includes(stored)) {
       setLanguageState(stored);
     } else {
       setLanguageState(detectLanguage());

@@ -8,7 +8,6 @@ import type { Language } from "@/lib/LanguageContext";
 const LANG_OPTIONS: { code: Language; label: string }[] = [
   { code: "en", label: "EN" },
   { code: "pt", label: "PT" },
-  { code: "es", label: "ES" },
 ];
 
 export default function Header() {

@@ -132,14 +132,16 @@ export default function AboutPedro() {
             </h2>
 
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
-              {t.aboutP1.split("Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz")[0]}
-              <strong>Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz</strong>
-              {t.aboutP1.split("Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz")[1]}
+              {t.aboutP1}
             </p>
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "20px" }}>
-              {t.aboutP2.split("Princess Cruises")[0]}
-              <strong>Princess Cruises</strong>
-              {t.aboutP2.split("Princess Cruises")[1]}
+              {t.aboutP2.includes("Princess Cruises") ? (
+                <>
+                  {t.aboutP2.split("Princess Cruises")[0]}
+                  <strong>Princess Cruises</strong>
+                  {t.aboutP2.split("Princess Cruises")[1]}
+                </>
+              ) : t.aboutP2}
             </p>
             <p style={{ fontSize: "16px", color: "#444444", lineHeight: "1.8", marginBottom: "32px" }}>
               {t.aboutP3}{" "}

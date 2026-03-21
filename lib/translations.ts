@@ -1,4 +1,4 @@
-export type Language = "en" | "pt" | "es";
+export type Language = "en" | "pt";
 
 export const translations = {
   en: {
@@ -163,7 +163,7 @@ export const translations = {
     heroHeadlineAccent: "Começa Aqui",
     heroSubtitle:
       "Sem experiência necessária. Aulas de dança personalizadas em poucas sessões — disponíveis em inglês, português ou espanhol.",
-    heroCTA: "Reservar a Sua 1ª Aula",
+    heroCTA: "Reservar a sua 1ª Aula",
     heroSeePricing: "Ver Preços →",
     heroMicro: "Oferta especial: primeira aula privada por apenas",
     heroLimited: "· Vagas limitadas",
@@ -194,7 +194,7 @@ export const translations = {
       "Especializamo-nos em iniciantes. A maioria dos casais nunca dançou — e brilham no dia do casamento.",
     benefit2Title: "Personalizado à Sua Música e Estilo",
     benefit2Body:
-      "A sua coreografia é construída à volta da sua música e personalidade. Sem rotinas genéricas.",
+      "A sua coreografia é construída à volta da sua música e personalidade. Sem coreografias genéricas.",
     benefit3Title: "Horários Flexíveis e Simples",
     benefit3Body:
       "Marque aulas em torno da sua agenda de casamento. De dia, à noite ou ao fim de semana no nosso estúdio no centro de Lisboa.",
@@ -211,18 +211,18 @@ export const translations = {
     aboutEyebrow: "Conheça o Seu Instrutor",
     aboutHeadline: "Pedro Ling",
     aboutP1:
-      "Pedro Ling é um dançarino e artista profissional com experiência em Ballroom, Latin, Tango Argentino, Salsa, Bachata, Kizomba e Jazz.",
+      "Pedro Ling é um dançarino e artista profissional com experiência em Jazz, Danças de Salão Modernas e Latinas, Tango Argentino, Salsa, Bachata e Kizomba.",
     aboutP2:
-      "Com experiência a ensinar dança de salão a bordo das Princess Cruises e uma vasta carreira de palco no teatro musical por toda a Europa, o Pedro alia excelência técnica a uma abordagem calorosa e descontraída em cada aula.",
+      "Com experiência a ensinar danças de salão e uma vasta carreira de palco no teatro musical por toda a Europa, o Pedro alia excelência técnica a uma abordagem calorosa e descontraída em cada aula.",
     aboutP3:
-      "Seja iniciante ou já com alguma experiência, o Pedro garante que se sente confiante, confortável e pronto a brilhar no seu dia de casamento — com aulas disponíveis em",
+      "Seja iniciante ou já com alguma experiência, o Pedro garante que se sentirá confiante, confortável e pronto a brilhar no seu dia de casamento — com aulas disponíveis em",
     aboutP3Lang: "inglês, português e espanhol",
     aboutCTA: "Reservar uma Aula com o Pedro",
 
     pricingEyebrow: "Preços",
     pricingHeadline: "Preços Simples e Transparentes",
     pricingSubtitle: "Comece com apenas uma aula. Sem compromisso.",
-    pricingWeddingLabel: "Primeira Dança",
+    pricingWeddingLabel: "Dança dos Noivos",
     pricingWeddingNote: "Aula privada · até 2 pessoas · 60 minutos",
     pricingPartyLabel: "Dança de Festa de Casamento",
     pricingPartyNote: "Aula em grupo · 3–6 pessoas · 60 minutos",
@@ -235,28 +235,28 @@ export const translations = {
     faqHeadline: "Perguntas Frequentes",
 
     finalEyebrow: "Comece Hoje",
-    finalHeadline: "Pronto para se Sentir Confiante no Seu Dia de Casamento?",
+    finalHeadline: "Pronto para se Sentir Confiante no seu Dia de Casamento?",
     finalBody:
-      "Reserve a sua primeira aula hoje e dê o primeiro passo para uma dança que você e os seus convidados nunca vão esquecer.",
+      "Reserve a sua primeira aula hoje e dê o primeiro passo para uma dança que você e os seus convidados nunca irão esquecer.",
     finalRisk1: "💰 Oferta especial: primeira aula privada por apenas €49",
     finalRisk2: "📅 Horários flexíveis: manhã, noite e fins de semana",
     finalRisk3: "🌍 Disponível em inglês, português e espanhol",
     finalRisk4: "✅ Sem experiência necessária",
-    finalFormTitle: "Reserve a Sua Aula Intro por €49",
+    finalFormTitle: "Reserve a sua aula intro por €49",
     finalFormSubtitle:
       "Preencha os seus dados e o Pedro entrará em contacto em 24 horas.",
 
     formNameLabel: "O Seu Nome *",
     formNamePlaceholder: "Ana & João",
     formEmailLabel: "Email *",
-    formEmailPlaceholder: "voce@exemplo.pt",
+    formEmailPlaceholder: "email@exemplo.pt",
     formWeddingDateLabel: "Data do Casamento *",
     formPhoneLabel: "Telefone (opcional)",
     formPhonePlaceholder: "+351 900 000 000",
     formSubmit: "Reservar a 1ª Aula – €49",
     formSending: "A enviar…",
     formError: "Algo correu mal. Por favor tente novamente.",
-    formDisclaimer: "Sem spam. Sem compromisso. O Pedro entra em contacto em 24 horas.",
+    formDisclaimer: "Sem spam. Sem compromisso. O Pedro entra em contacto nas próximas 24 horas.",
     formSuccessTitle: "Está tudo pronto!",
     formSuccessBody: "O Pedro entrará em contacto em 24 horas para confirmar a sua aula.",
 
@@ -265,131 +265,6 @@ export const translations = {
     footerName: "Lisbon First Dance",
     footerTagline: "Instrutor Profissional de Dança para Casamentos",
     footerCopyright: "Lisbon First Dance. Todos os direitos reservados.",
-  },
-
-  es: {
-    siteTitle: "Lisbon First Dance | Clases de Baile para Bodas",
-    siteDescription:
-      "Siéntete seguro y deslumbrante en tu primer baile — sin experiencia necesaria. Clases personalizadas de baile de boda en Lisboa. Resultados rápidos. Reserva tu primera clase por solo €49.",
-
-    announcementText: "🎉 Oferta Especial: Primera Clase Privada de Baile de Boda — Solo €49",
-    announcementCTA: "Reservar Ahora",
-
-    logoName: "Lisbon First Dance",
-    headerCTA: "Reservar 1ª Clase – €49",
-    headerCTAShort: "Reservar – €49",
-
-    navHome: "Inicio",
-    navAbout: "Sobre",
-    navPricing: "Precios",
-    navFAQ: "FAQ",
-
-    heroBadge: "5 Estrellas",
-    heroHeadline1: "Tu Primer Baile Perfecto",
-    heroHeadlineAccent: "Empieza Aquí",
-    heroSubtitle:
-      "Sin experiencia necesaria. Clases de baile personalizadas en pocas sesiones — disponibles en inglés, portugués o español.",
-    heroCTA: "Reservar Tu 1ª Clase",
-    heroSeePricing: "Ver Precios →",
-    heroMicro: "Oferta especial: primera clase privada por solo",
-    heroLimited: "· Plazas limitadas",
-
-    socialProofEyebrow: "Lo Que Dicen las Parejas",
-    socialProofHeadline: "Parejas Reales, Resultados Reales",
-    trust5Star: "5 Estrellas",
-    trustLanguages: "EN · PT · ES",
-    trustProfessional: "Instructor Profesional",
-
-    howEyebrow: "Proceso Sencillo",
-    howHeadline: "Cómo Funciona",
-    howSubtitle: "Tres pasos fáciles de principiante nervioso a bailarín seguro.",
-    step1Title: "Reserva tu Primera Clase",
-    step1Body:
-      "Programa tu primera sesión privada para hablar sobre tu visión, canción y fecha de boda.",
-    step2Title: "Aprende Tu Coreografía Personalizada",
-    step2Body:
-      "Trabaja una coreografía adaptada a ti y tu canción — a tu ritmo, en inglés, portugués o español.",
-    step3Title: "Baila con Confianza en Tu Gran Día",
-    step3Body:
-      "Entra a la pista relajado, preparado y listo para crear un momento que nunca olvidarás.",
-
-    benefitsEyebrow: "Por Qué Lisbon First Dance",
-    benefitsHeadline: "Todo lo Que Necesitas para Brillar",
-    benefit1Title: "Sin Experiencia Necesaria",
-    benefit1Body:
-      "Nos especializamos en principiantes. La mayoría de las parejas nunca han bailado — y brillan en su boda.",
-    benefit2Title: "Personalizado a Tu Música y Estilo",
-    benefit2Body:
-      "Tu coreografía se crea alrededor de tu música y personalidad. Sin rutinas genéricas.",
-    benefit3Title: "Horarios Simples y Flexibles",
-    benefit3Body:
-      "Reserva clases según tu agenda de boda. De día, por las noches o los fines de semana en nuestro estudio en el centro de Lisboa.",
-    benefit4Title: "Progreso Rápido en Pocas Clases",
-    benefit4Body:
-      "La mayoría de las parejas se sienten seguros tras 3–5 sesiones. El enfoque estructurado de Pedro hace el aprendizaje eficiente y divertido.",
-    benefit5Title: "Clases en EN · PT · ES",
-    benefit5Body:
-      "Siéntete cómodo en el idioma que mejor conoces — inglés, portugués o español.",
-    benefit6Title: "Experiencia Divertida y sin Estrés",
-    benefit6Body:
-      "Planificar una boda ya es estresante. El estilo cálido y paciente de Pedro convierte las clases en el punto álgido de la semana.",
-
-    aboutEyebrow: "Conoce a Tu Instructor",
-    aboutHeadline: "Pedro Ling",
-    aboutP1:
-      "Pedro Ling es un bailarín y artista profesional con experiencia en Ballroom, Latin, Tango Argentino, Salsa, Bachata, Kizomba y Jazz.",
-    aboutP2:
-      "Con experiencia enseñando baile de salón a bordo de Princess Cruises y una extensa carrera en teatro musical por toda Europa, Pedro combina excelencia técnica con un enfoque cálido y relajado en cada clase.",
-    aboutP3:
-      "Seas principiante o tengas algo de experiencia, Pedro se asegurará de que te sientas seguro, cómodo y listo para brillar en tu día de boda — con clases disponibles en",
-    aboutP3Lang: "inglés, portugués y español",
-    aboutCTA: "Reservar una Clase con Pedro",
-
-    pricingEyebrow: "Precios",
-    pricingHeadline: "Precios Simples y Transparentes",
-    pricingSubtitle: "Empieza con una sola clase. Sin compromiso.",
-    pricingWeddingLabel: "Primer Baile",
-    pricingWeddingNote: "Clase privada · hasta 2 personas · 60 minutos",
-    pricingPartyLabel: "Baile de Fiesta de Boda",
-    pricingPartyNote: "Clase en grupo · 3–6 personas · 60 minutos",
-    pricingFootnote:
-      "* Se aplica tarifa adicional para visitas a domicilio o sesiones en el lugar del evento.",
-    bookFor49: "Reservar por €49",
-    bookNow: "Reservar Ahora",
-
-    faqEyebrow: "FAQ",
-    faqHeadline: "Preguntas Frecuentes",
-
-    finalEyebrow: "Empieza Hoy",
-    finalHeadline: "¿Listo para Sentirte Seguro en Tu Día de Boda?",
-    finalBody:
-      "Reserva tu primera clase hoy y da el primer paso hacia un baile que tú y tus invitados nunca olvidarán.",
-    finalRisk1: "💰 Oferta especial: primera clase privada por solo €49",
-    finalRisk2: "📅 Horarios flexibles: mañanas, tardes y fines de semana",
-    finalRisk3: "🌍 Disponible en inglés, portugués y español",
-    finalRisk4: "✅ Sin experiencia necesaria",
-    finalFormTitle: "Reserva Tu Clase Intro por €49",
-    finalFormSubtitle: "Rellena tus datos y Pedro se pondrá en contacto en 24 horas.",
-
-    formNameLabel: "Tu Nombre *",
-    formNamePlaceholder: "Ana & Juan",
-    formEmailLabel: "Correo Electrónico *",
-    formEmailPlaceholder: "tu@ejemplo.es",
-    formWeddingDateLabel: "Fecha de la Boda *",
-    formPhoneLabel: "Teléfono (opcional)",
-    formPhonePlaceholder: "+34 600 000 000",
-    formSubmit: "Reservar Mi 1ª Clase – €49",
-    formSending: "Enviando…",
-    formError: "Algo salió mal. Por favor, inténtalo de nuevo.",
-    formDisclaimer: "Sin spam. Sin compromiso. Pedro se pondrá en contacto en 24 horas.",
-    formSuccessTitle: "¡Todo listo!",
-    formSuccessBody: "Pedro se pondrá en contacto en 24 horas para confirmar tu clase.",
-
-    stickyCTA: "Reservar 1ª Clase – €49",
-
-    footerName: "Lisbon First Dance",
-    footerTagline: "Instructor Profesional de Baile de Bodas",
-    footerCopyright: "Lisbon First Dance. Todos los derechos reservados.",
   },
 } as const;
 
