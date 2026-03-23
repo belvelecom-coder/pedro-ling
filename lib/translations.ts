@@ -82,7 +82,7 @@ export const translations = {
     aboutP1:
       "Pedro Ling is a professional dancer and performer with expertise spanning Ballroom, Latin, Argentine Tango, Salsa, Bachata, Kizomba, and Jazz.",
     aboutP2:
-      "With experience teaching ballroom and social dancing on board Princess Cruises, as well as an extensive performance career in musical theatre across Europe, Pedro brings both technical excellence and a warm, easy-going approach to every lesson.",
+      "With experience teaching ballroom and social dancing, as well as an extensive performance career in musical theatre across Europe, Pedro brings both technical excellence and a warm, easy-going approach to every lesson.",
     aboutP3:
       "Whether you're a complete beginner or looking to perfect your first dance, Pedro will make sure you feel confident, comfortable, and ready to shine on your wedding day — with classes available in",
     aboutP3Lang: "English, Portuguese, and Spanish",
