@@ -21,13 +21,13 @@ function getWeddingPlans(lang: Language) {
     pt: {
       p1Name: "Oferta Introdutória", p1Badge: "Comece Aqui",
       p1Sub: "Aula privada · até 2 pessoas · 60 min", p1Note: "Apenas a primeira aula",
-      p1F: ["Perfeito para principiantes", "Personalizado para a sua música", "Sem experiência necessária", "Visita a casa / local disponível*"],
+      p1F: ["Perfeito para principiantes", "Personalizado para a sua música", "Sem experiência necessária", "Visita a casa ou ao local do evento disponível*"],
       p2Name: "Pacote de 5 Aulas",
       p2Sub: "Aulas privadas · até 2 pessoas · 60 min cada", p2Note: "€55 por aula",
-      p2F: ["Desenvolvimento completo da coreografia", "Progrida ao seu ritmo", "Gravado para praticar em casa", "Visita a casa / local disponível*"],
+      p2F: ["Desenvolvimento completo da coreografia", "Progrida ao seu ritmo", "Gravado para praticar em casa", "Visita a casa ou ao local do evento disponível*"],
       p3Name: "Pacote de 10 Aulas", p3Badge: "Melhor Valor",
       p3Sub: "Aulas privadas · até 2 pessoas · 60 min cada", p3Note: "€50 por aula",
-      p3F: ["Pacote completo de Dança dos Noivos", "Coreografia complexa bem-vinda", "Várias opções de estilo", "Visita a casa / local disponível*"],
+      p3F: ["Pacote completo de Dança dos Noivos", "Coreografia complexa bem-vinda", "Várias opções de estilo", "Visita a casa ou ao local do evento disponível*"],
     },
   }[lang];
 
@@ -50,11 +50,11 @@ function getPartyPlans(lang: Language) {
     },
     pt: {
       p1Name: "Aula Individual", p1Sub: "Aula em grupo · 3–6 pessoas · 60 min", p1Note: "Por sessão",
-      p1F: ["Sessão em grupo divertida", "Grupo de casamento bem-vindo", "Visita a casa / local disponível*"],
+      p1F: ["Sessão em grupo divertida", "Grupo de casamento bem-vindo", "Visita a casa ou ao local do evento disponível*"],
       p2Name: "Pacote de 5 Aulas", p2Sub: "Aulas em grupo · 3–6 pessoas · 60 min cada", p2Note: "€95 por aula",
-      p2F: ["Construa em cada sessão", "Ótimo para festas / eventos", "Visita a casa / local disponível*"],
+      p2F: ["Construa em cada sessão", "Ótimo para festas / eventos", "Visita a casa ou ao local do evento disponível*"],
       p3Name: "Pacote de 10 Aulas", p3Sub: "Aulas em grupo · 3–6 pessoas · 60 min cada", p3Note: "€90 por aula",
-      p3F: ["Programa completo em grupo", "Perfeito para grupos que adoram dançar", "Visita a casa / local disponível*"],
+      p3F: ["Programa completo em grupo", "Perfeito para grupos que adoram dançar", "Visita a casa ou ao local do evento disponível*"],
     },
   }[lang];
 

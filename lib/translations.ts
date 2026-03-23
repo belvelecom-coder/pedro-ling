@@ -162,8 +162,8 @@ export const translations = {
     heroHeadline1: "A Sua Primeira Dança Perfeita",
     heroHeadlineAccent: "Começa Aqui",
     heroSubtitle:
-      "Sem experiência necessária. Aulas de dança personalizadas em poucas sessões — disponíveis em inglês, português ou espanhol.",
-    heroCTA: "Reservar a sua 1ª Aula",
+      "Sem experiência necessária. Aulas de dança personalizadas em poucas sessões. Disponíveis em inglês, português ou espanhol.",
+    heroCTA: "Reserve a sua 1ª Aula",
     heroSeePricing: "Ver Preços →",
     heroMicro: "Oferta especial: primeira aula privada por apenas",
     heroLimited: "· Vagas limitadas",
@@ -176,22 +176,22 @@ export const translations = {
 
     howEyebrow: "Processo Simples",
     howHeadline: "Como Funciona",
-    howSubtitle: "Três passos fáceis de principiante nervoso a dançarino confiante.",
+    howSubtitle: "Três passos fáceis de principiante ansioso a bailarino confiante.",
     step1Title: "Reserve a Sua Primeira Aula",
     step1Body:
       "Agende a sua primeira sessão privada para falar sobre a sua visão, música e data do casamento.",
     step2Title: "Aprenda a Sua Coreografia Personalizada",
     step2Body:
-      "Trabalhe uma coreografia adaptada a si e à sua música — ao seu ritmo, em inglês, português ou espanhol.",
+      "Trabalhe uma coreografia adaptada a si, à sua música e ao seu ritmo, em inglês, português ou espanhol.",
     step3Title: "Dance com Confiança no Seu Grande Dia",
     step3Body:
-      "Entre na pista de dança relaxado, preparado e pronto para criar um momento inesquecível.",
+      "Entre na pista de dança relaxado, confiante e pronto para criar um momento inesquecível.",
 
     benefitsEyebrow: "Porquê a Lisbon First Dance",
     benefitsHeadline: "Tudo o Que Precisa para Brilhar",
     benefit1Title: "Sem Experiência Necessária",
     benefit1Body:
-      "Especializamo-nos em iniciantes. A maioria dos casais nunca dançou — e brilham no dia do casamento.",
+      "Especializamo-nos em iniciantes. A maioria dos casais nunca dançou, mas ainda assim brilham no dia do casamento.",
     benefit2Title: "Personalizado à Sua Música e Estilo",
     benefit2Body:
       "A sua coreografia é construída à volta da sua música e personalidade. Sem coreografias genéricas.",
@@ -203,7 +203,7 @@ export const translations = {
       "A maioria dos casais sente-se confiante após 3–5 sessões. A abordagem estruturada do Pedro torna a aprendizagem eficaz e divertida.",
     benefit5Title: "Aulas em EN · PT · ES",
     benefit5Body:
-      "Sinta-se confortável no idioma que conhece melhor — inglês, português ou espanhol.",
+      "Sinta-se confortável no idioma que conhece melhor, inglês, português ou espanhol.",
     benefit6Title: "Experiência Divertida e sem Stress",
     benefit6Body:
       "Planear um casamento já é stressante. O estilo caloroso e paciente do Pedro torna as aulas o ponto alto da semana.",
@@ -244,7 +244,7 @@ export const translations = {
     finalRisk4: "✅ Sem experiência necessária",
     finalFormTitle: "Reserve a sua aula intro por €49",
     finalFormSubtitle:
-      "Preencha os seus dados e o Pedro entrará em contacto em 24 horas.",
+      "Preencha os seus dados e o Pedro entrará em contacto dentro de 24 horas.",
 
     formNameLabel: "O Seu Nome *",
     formNamePlaceholder: "Ana & João",
