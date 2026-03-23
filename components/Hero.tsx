@@ -45,7 +45,7 @@ export default function Hero() {
               style={{ height: "280px", borderRadius: "16px" }}
             >
               <Image
-                src="/images/hero/mobile-hero.png"
+                src="/images/hero/hero-cropped.jpeg"
                 alt="Couple dancing at a wedding"
                 fill
                 className="object-cover object-center"
@@ -62,15 +62,6 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Trust badge — "5-Star Rated" only (no "100+ couples") */}
-            <div
-              className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full text-sm font-medium"
-              style={{ background: "#FAF3E0", color: "#D4A373" }}
-            >
-              <span>⭐⭐⭐⭐⭐</span>
-              <span>{t.heroBadge}</span>
-            </div>
-
             <h1
               className="font-heading font-semibold text-[#1A1A1A] mb-5 text-balance"
               style={{ fontSize: "clamp(28px, 5vw, 56px)", lineHeight: "1.15" }}
@@ -136,7 +127,7 @@ export default function Hero() {
               style={{ height: "520px", borderRadius: "16px", maxWidth: "600px" }}
             >
               <Image
-                src="/images/hero/desktop-hero.png"
+                src="/images/hero/hero-cropped.jpeg"
                 alt="Couple dancing elegantly at a wedding"
                 fill
                 className="object-cover object-center"

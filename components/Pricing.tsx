@@ -134,15 +134,6 @@ function PriceCard({ plan, index }: { plan: WeddingPlan | PlanBase; index: numbe
         <span className="text-sm" style={{ color: "#999999" }}>{plan.priceNote}</span>
       </div>
 
-      <ul className="flex-1 mb-7 space-y-3">
-        {plan.features.map((f, i) => (
-          <li key={i} className="flex items-start gap-2 text-sm" style={{ color: "#444444" }}>
-            <span style={{ color: "#D4A373", marginTop: "1px" }}>✓</span>
-            {f}
-          </li>
-        ))}
-      </ul>
-
       <button
         onClick={handleClick}
         className="w-full font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
