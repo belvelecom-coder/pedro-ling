@@ -191,7 +191,7 @@ export const translations = {
     benefitsHeadline: "Tudo o Que Precisa para Brilhar",
     benefit1Title: "Sem Experiência Necessária",
     benefit1Body:
-      "Especializamo-nos em iniciantes. A maioria dos casais nunca dançou, mas ainda assim brilham no dia do casamento.",
+      "Especializamo-nos em principiantes. A maioria dos casais nunca dançou, mas ainda assim brilham no dia do casamento.",
     benefit2Title: "Personalizado à Sua Música e Estilo",
     benefit2Body:
       "A sua coreografia é construída à volta da sua música e personalidade. Sem coreografias genéricas.",

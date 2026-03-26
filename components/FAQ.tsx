@@ -44,7 +44,7 @@ const faqsEn = [
 
 const faqsPt = [
   {
-    question: "Não temos experiência em dança — conseguimos fazer isto?",
+    question: "Não temos experiência em dança, conseguimos fazer isto?",
     answer:
       "Absolutamente. A grande maioria dos casais que fazem aulas de Dança dos Noivos, são principiantes ou sem experiência. O Pedro especializa-se em transformar não-bailarinos em casais confiantes e com coreografias adequadas. O foco está na ligação e confiança, não na perfeição técnica.",
   },
