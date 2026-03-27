@@ -24,11 +24,22 @@ export const metadata: Metadata = {
     "Feel confident and look amazing on your first dance — no experience needed. Personalized wedding dance lessons in Lisbon. Beginner-friendly, fast results. Book your first lesson for only €49.",
   keywords:
     "wedding dance lessons, first dance, Lisbon First Dance, ballroom, salsa, bachata, wedding choreography, lisbon, portugal",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "48x48", type: "image/png" },
+      { url: "/icon.png", sizes: "96x96", type: "image/png" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     title: "Lisbon First Dance | Wedding Dance Lessons",
     description:
       "Your Perfect First Dance Starts Here. Personalized wedding dance lessons — no experience needed.",
     type: "website",
+    url: "https://lisbonfirstdance.com",
+    siteName: "Lisbon First Dance",
   },
 };
 
