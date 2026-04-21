@@ -14,9 +14,12 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
     email: "",
     weddingDate: "",
     phone: "",
+    preferredLanguage: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -44,7 +47,7 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
 
       if (!res.ok) throw new Error("Submission failed");
       setFormState("success");
-      setForm({ name: "", email: "", weddingDate: "", phone: "" });
+      setForm({ name: "", email: "", weddingDate: "", phone: "", preferredLanguage: "" });
     } catch {
       setFormState("error");
     }
@@ -140,6 +143,24 @@ export default function LeadForm({ variant = "inline" }: { variant?: "inline" | 
           className={inputClass}
           style={inputStyle}
         />
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium mb-1" style={{ color: "#666666" }}>
+          {t.formLanguageLabel}
+        </label>
+        <select
+          name="preferredLanguage"
+          value={form.preferredLanguage}
+          onChange={handleChange}
+          className={inputClass}
+          style={inputStyle}
+        >
+          <option value="">{t.formLanguagePlaceholder}</option>
+          <option value="English">{t.formLanguageEnglish}</option>
+          <option value="Portuguese">{t.formLanguagePortuguese}</option>
+          <option value="Spanish">{t.formLanguageSpanish}</option>
+        </select>
       </div>
 
       {formState === "error" && (

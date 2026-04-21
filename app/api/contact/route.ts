@@ -11,6 +11,7 @@ async function appendToSheet(data: {
   email: string;
   weddingDate: string;
   phone: string;
+  preferredLanguage: string;
 }) {
   const { GOOGLE_SERVICE_ACCOUNT_EMAIL, GOOGLE_PRIVATE_KEY, GOOGLE_SHEET_ID } =
     process.env;
@@ -42,10 +43,17 @@ async function appendToSheet(data: {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: GOOGLE_SHEET_ID,
-    range: "A:E",
+    range: "A:F",
     valueInputOption: "RAW",
     requestBody: {
-      values: [[timestamp, data.name, data.email, data.weddingDate, data.phone || "—"]],
+      values: [[
+        timestamp,
+        data.name,
+        data.email,
+        data.weddingDate,
+        data.phone || "—",
+        data.preferredLanguage || "—",
+      ]],
     },
   });
 }
@@ -57,6 +65,7 @@ async function sendEmailNotification(data: {
   email: string;
   weddingDate: string;
   phone: string;
+  preferredLanguage: string;
 }) {
   const { SMTP_USER, SMTP_PASS } = process.env;
 
@@ -83,6 +92,7 @@ async function sendEmailNotification(data: {
         <tr><td><strong>Email:</strong></td><td>${data.email}</td></tr>
         <tr><td><strong>Wedding Date:</strong></td><td>${data.weddingDate}</td></tr>
         <tr><td><strong>Phone:</strong></td><td>${data.phone || "—"}</td></tr>
+        <tr><td><strong>Preferred Language:</strong></td><td>${data.preferredLanguage || "—"}</td></tr>
         <tr><td><strong>Submitted:</strong></td><td>${new Date().toLocaleString("pt-PT", { timeZone: "Europe/Lisbon" })}</td></tr>
       </table>
     `,
@@ -94,7 +104,7 @@ async function sendEmailNotification(data: {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, weddingDate, phone } = body;
+    const { name, email, weddingDate, phone, preferredLanguage } = body;
 
     if (!name || !email || !weddingDate) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -105,6 +115,7 @@ export async function POST(req: NextRequest) {
       email: String(email).slice(0, 300),
       weddingDate: String(weddingDate).slice(0, 20),
       phone: String(phone || "").slice(0, 50),
+      preferredLanguage: String(preferredLanguage || "").slice(0, 30),
     };
 
     // Run sheet append and email in parallel — neither failure blocks the response
